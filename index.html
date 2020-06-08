@@ -8,6 +8,9 @@
     <div id="app">
       {{ message }}
 
+      <p>
+        <input v-model="message" />
+      </p>
       <p v-if="isVisible">
         Will be visible if isVisible is set to true
       </p>
