@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+
+      <p v-if="isVisible">
+        Will be visible if isVisible is set to true
+      </p>
+
+      <ol>
+        <li v-on:click="log" v-bind:title="item.text" v-for="item in todos">
+          {{item.text}}
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello Vue!",
+          isVisible: true,
+          todos: [
+            { text: "Learn JavaScript" },
+            { text: "Learn Vue" },
+            { text: "Build something awesome" }
+          ]
+        },
+        methods: {
+          log: e => {
+            const { title } = e.target;
+            console.log(title);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
